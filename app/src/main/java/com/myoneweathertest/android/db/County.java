@@ -3,17 +3,26 @@ package com.myoneweathertest.android.db;
 import org.litepal.crud.DataSupport;
 
 public class County extends DataSupport {
-    private int county;
+    private int id;
+    private int countyCode;
     private String countyName;
     private String weatherId;
     private int cityId;
 
-    public int getCounty() {
-        return county;
+    public int getId() {
+        return id;
     }
 
-    public void setCounty(int county) {
-        this.county = county;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCountyCode() {
+        return countyCode;
+    }
+
+    public void setCountyCode(int countyCode) {
+        this.countyCode = countyCode;
     }
 
     public String getCountyName() {
