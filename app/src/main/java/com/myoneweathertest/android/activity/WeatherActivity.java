@@ -1,6 +1,7 @@
 package com.myoneweathertest.android.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -25,6 +26,7 @@ import com.bumptech.glide.Glide;
 import com.myoneweathertest.android.R;
 import com.myoneweathertest.android.gson.DailyForecastBean;
 import com.myoneweathertest.android.gson.WeatherBean;
+import com.myoneweathertest.android.service.AutoUpdateService;
 import com.myoneweathertest.android.util.HttpUtil;
 import com.myoneweathertest.android.util.Utility;
 
@@ -174,6 +176,9 @@ public class WeatherActivity extends AppCompatActivity {
                             editor.apply();
                             Toast.makeText(WeatherActivity.this, "天气信息获取成功，已存放到缓存中", Toast.LENGTH_SHORT).show();
                             showWeatherInfo(weather);
+                            Intent intent=new Intent(WeatherActivity.this, AutoUpdateService.class);
+                            startService(intent);
+
                         } else {
                             Toast.makeText(WeatherActivity.this, "从缓存获取天气信息失败", Toast.LENGTH_SHORT).show();
 
