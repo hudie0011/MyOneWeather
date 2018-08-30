@@ -1,17 +1,20 @@
 package com.myoneweathertest.android.util;
 
 import android.text.TextUtils;
+import android.util.Log;
 
+import com.google.gson.Gson;
 import com.myoneweathertest.android.db.City;
 import com.myoneweathertest.android.db.County;
 import com.myoneweathertest.android.db.Province;
+import com.myoneweathertest.android.gson.WeatherBean;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Utility {
-
+    private static final String TAG = "Utility";
     //1解析和处理服务器返回的省级数据
     public static boolean handleProvinceResponse(String response){
         if(!TextUtils.isEmpty(response)){
@@ -88,4 +91,18 @@ public class Utility {
         return false;
     }
 
+
+    //4 将返回的json数据解析成Weather实体类
+    public  static WeatherBean handleWeatherResponse(String response){
+        try {
+            JSONObject jsonObject=new JSONObject(response);
+            JSONArray jsonArray=jsonObject.getJSONArray("HeWeather");
+           String weatherContent=jsonArray.getJSONObject(0).toString();
+            Log.d("WeatherActivity", "handleWeatherResponse: "+weatherContent);
+           return new Gson().fromJson(weatherContent,WeatherBean.class);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

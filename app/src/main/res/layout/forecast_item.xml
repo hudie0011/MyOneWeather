@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#000"
+    android:layout_margin="3dp">
+
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:textColor="#fff"
+        android:layout_weight="2"
+        android:textSize="20sp"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/date_text"
+        android:text="显示天气预报日期"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:textColor="#fff"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/info_text"
+        android:gravity="center"
+        android:text="显示天气概况"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:textColor="#fff"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:id="@+id/max_text"
+        android:gravity="right"
+        android:text="显示最高气温"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:textColor="#fff"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:id="@+id/min_text"
+        android:gravity="right"
+        android:text="显示最低气温"/>
+</LinearLayout>
